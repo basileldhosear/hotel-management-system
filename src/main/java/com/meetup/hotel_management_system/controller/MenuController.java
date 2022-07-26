@@ -20,12 +20,12 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
-//    @Secured({HmsConstants.ROLE_MANAGER, HmsConstants.ROLE_STAFF})
-//    @PostMapping
-//    public MenuDto addMenu(@RequestBody MenuDto menuDto) {
-//
-//        return menuService.saveMenu(menuDto);
-//    }
+    @Secured({HmsConstants.ROLE_MANAGER, HmsConstants.ROLE_STAFF})
+    @PostMapping
+    public MenuDto addMenu(@RequestBody MenuDto menuDto) {
+
+        return menuService.saveMenu(menuDto);
+    }
 
     @Secured({HmsConstants.ROLE_MANAGER, HmsConstants.ROLE_STAFF, HmsConstants.ROLE_GUEST})
     @GetMapping
