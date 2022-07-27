@@ -1,8 +1,9 @@
 package com.meetup.hotel_management_system.dto;
 
-import com.meetup.hotel_management_system.repository.entity.MenuEntity;
+
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -13,9 +14,10 @@ import java.util.Set;
 @NoArgsConstructor
 public class OrderDto {
 
+    private int id;
     private int quantity;
     private String description;
 
-    private MenuDto menu;
+    private List<MenuDto> menu;
 
 }

@@ -3,6 +3,7 @@ package com.meetup.hotel_management_system.repository.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,13 +24,19 @@ public class OrderEntity {
     private String description;
 
 
+//    @OneToMany(mappedBy = "order")
+//    List<MenuEntity> order;
+
+
+    //new
     @OneToMany(mappedBy = "order")
-    List<MenuEntity> order;
+    List<MenuEntity> menu;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderinfo_id", referencedColumnName = "id")
     private OrderInfoEntity orderInfo;
+
 
 
 }

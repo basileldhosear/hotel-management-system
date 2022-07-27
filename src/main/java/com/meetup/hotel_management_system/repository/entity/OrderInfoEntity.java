@@ -17,8 +17,10 @@ public class OrderInfoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private int tblNo;
     private String customerName;
     private String status;
+
 
 
     @OneToOne(mappedBy = "orderInfo")
