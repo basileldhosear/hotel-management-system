@@ -17,6 +17,9 @@ public class OrderDto {
     private int id;
     private int quantity;
     private String description;
+    private String status;
+
+    private OrderInfoDto infoDto;
 
     private List<MenuDto> menu;
 

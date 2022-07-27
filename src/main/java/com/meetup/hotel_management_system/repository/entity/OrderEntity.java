@@ -22,20 +22,21 @@ public class OrderEntity {
     @Column(name = "quantity", nullable = false)
     private int quantity;
     private String description;
+    private String status;
 
 
-//    @OneToMany(mappedBy = "order")
-//    List<MenuEntity> order;
 
-
-    //new
-    @OneToMany(mappedBy = "order")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order", referencedColumnName = "id")
     List<MenuEntity> menu;
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "orderinfo_id", referencedColumnName = "id")
+    @JoinColumn(name = "orderInfo_id", referencedColumnName = "id")
     private OrderInfoEntity orderInfo;
+
+
+
 
 
 

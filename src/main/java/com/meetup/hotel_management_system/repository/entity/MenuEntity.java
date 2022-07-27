@@ -24,9 +24,9 @@ public class MenuEntity {
     private boolean available;
 
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="order_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
     private OrderEntity order;
+
 
 
 

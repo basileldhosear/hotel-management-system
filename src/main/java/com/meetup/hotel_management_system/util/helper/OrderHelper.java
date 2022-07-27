@@ -15,20 +15,26 @@ public class OrderHelper {
     public static OrderEntity mapToEntity(OrderDto orderDto) {
 
         return OrderEntity.builder()
-                //.order((List<MenuEntity>) orderDto.getMenu())
+                .id(orderDto.getId())
                 .quantity(orderDto.getQuantity())
                 .description(orderDto.getDescription())
+                .status(orderDto.getStatus())
+                .menu(orderDto.getMenu().stream()
+                        .map(MenuHelper::mapToEntity)
+                        .collect(Collectors.toList()))
                 .build();
     }
 
     public static OrderDto mapToDto(OrderEntity orderEntity) {
 
         return OrderDto.builder()
+                .id(orderEntity.getId())
                 .menu(orderEntity.getMenu().stream()
                         .map(MenuHelper::mapToDto)
                         .collect(Collectors.toList()))
                 .quantity(orderEntity.getQuantity())
                 .description(orderEntity.getDescription())
+                .status(orderEntity.getStatus())
                 .build();
     }
 }

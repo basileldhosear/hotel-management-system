@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderInfoDto {
 
+    private int id;
     private int tblNo;
     private String customerName;
     private String status;
