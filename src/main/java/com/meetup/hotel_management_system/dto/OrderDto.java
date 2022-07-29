@@ -3,8 +3,7 @@ package com.meetup.hotel_management_system.dto;
 
 import lombok.*;
 
-import java.util.List;
-import java.util.Set;
+
 
 
 @Getter
@@ -19,8 +18,8 @@ public class OrderDto {
     private String description;
     private String status;
 
-    private OrderInfoDto infoDto;
-
-    private List<MenuDto> menu;
+//    private OrderInfoDto infoDto;
+//
+    private MenuDto menu;
 
 }

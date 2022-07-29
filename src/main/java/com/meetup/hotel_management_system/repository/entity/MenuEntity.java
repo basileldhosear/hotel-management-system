@@ -24,8 +24,14 @@ public class MenuEntity {
     private boolean available;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    //menu id mapping to order table
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "menu", fetch = FetchType.LAZY)
     private OrderEntity order;
+
+
+
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private OrderEntity order;
 
 
 

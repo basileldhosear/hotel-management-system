@@ -29,8 +29,8 @@ public class UserEntity {
     @JoinColumn(name="role_id", referencedColumnName = "id")
     private RoleEntity role;
 
-    @OneToMany(mappedBy = "staff")
-    List<OrderInfoEntity> orderInfoEntities;
+//    @OneToMany(mappedBy = "staff")
+//    List<OrderInfoEntity> orderInfoEntities;
 
 
 

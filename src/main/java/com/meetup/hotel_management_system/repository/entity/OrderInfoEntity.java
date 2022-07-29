@@ -23,13 +23,13 @@ public class OrderInfoEntity {
 
 
 
-    @OneToOne(mappedBy = "orderInfo")
-    private OrderEntity orderInfo;
-
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="staff_id", referencedColumnName = "id")
-    private UserEntity staff;
+//    @OneToOne(mappedBy = "orderInfo")
+//    private OrderEntity orderInfo;
+//
+//
+//    @ManyToOne(cascade = CascadeType.MERGE)
+//    @JoinColumn(name="staff_id", referencedColumnName = "id")
+//    private UserEntity staff;
 
 
 
