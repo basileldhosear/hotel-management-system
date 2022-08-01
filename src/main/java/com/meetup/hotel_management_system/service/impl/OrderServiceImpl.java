@@ -30,7 +30,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderDto saveOrder(OrderDto orderDto) throws BusinessException {
 
-
        var notAvailable= orderDto.getMenuDetails().stream()
                 .map(menuDetail -> menuRepository.findById(menuDetail.getMenuId()))
                 .map(menu -> menu.orElse(null)).filter(Objects::nonNull)
