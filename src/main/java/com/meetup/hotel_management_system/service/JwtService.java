@@ -4,6 +4,7 @@ package com.meetup.hotel_management_system.service;
 import com.meetup.hotel_management_system.dto.LoginDto;
 import com.meetup.hotel_management_system.dto.LoginResponseDto;
 import com.meetup.hotel_management_system.dto.UserDto;
+import com.meetup.hotel_management_system.exception.ResourceNotFoundException;
 import com.meetup.hotel_management_system.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -53,7 +54,12 @@ public class JwtService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserDto userDto = userService.getByUserName(username);
+        UserDto userDto = null;
+        try {
+            userDto = userService.getByUserName(username);
+        } catch (ResourceNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         if (userDto != null) {
             return new org.springframework.security.core.userdetails.User(

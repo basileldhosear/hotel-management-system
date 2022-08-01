@@ -1,7 +1,9 @@
 package com.meetup.hotel_management_system.util.helper;
 
+import com.meetup.hotel_management_system.dto.OrderDto;
 import com.meetup.hotel_management_system.dto.OrderInfoDto;
 import com.meetup.hotel_management_system.repository.entity.OrderInfoEntity;
+import com.meetup.hotel_management_system.repository.entity.UserEntity;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -38,6 +40,22 @@ public class OrderInfoHelper {
         }return null;
     }
 
+
+    public static OrderInfoEntity mapToEntityFromOrder(OrderDto orderDto){
+
+        if(orderDto!=null){
+
+            return OrderInfoEntity.builder()
+                    .staff(UserEntity.builder()
+                            .id(orderDto.getStaffId())
+                            .build())
+                    .tblNo(orderDto.getTableNo())
+                    .customerName(orderDto.getCustomerName())
+                    .build();
+        }
+
+        return null;
+    }
 
 }
 

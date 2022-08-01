@@ -2,6 +2,7 @@ package com.meetup.hotel_management_system.controller;
 
 import com.meetup.hotel_management_system.constant.HmsConstants;
 import com.meetup.hotel_management_system.dto.MenuDto;
+import com.meetup.hotel_management_system.exception.ResourceNotFoundException;
 import com.meetup.hotel_management_system.repository.entity.MenuEntity;
 import com.meetup.hotel_management_system.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class MenuController {
 
     @DeleteMapping("/{id}")
     @Secured({HmsConstants.ROLE_MANAGER})
-    public String deleteMenuById(@PathVariable int id) {
+    public String deleteMenuById(@PathVariable int id) throws ResourceNotFoundException {
         return menuService.deleteByMenuId(id);
     }
 

@@ -10,22 +10,28 @@ public class MenuHelper {
 
     public static MenuEntity mapToEntity(MenuDto menuDto) {
 
-        return MenuEntity.builder()
-                .name(menuDto.getName())
-                .type(menuDto.getType())
-                .price(menuDto.getPrice())
-                .available(menuDto.isAvailable())
+        if(menuDto != null) {
+            return MenuEntity.builder()
+                    .name(menuDto.getName())
+                    .type(menuDto.getType())
+                    .price(menuDto.getPrice())
+                    .available(menuDto.isAvailable())
 
-                .build();
+                    .build();
+        }return null;
     }
 
     public static MenuDto mapToDto(MenuEntity menuEntity) {
 
+        if(menuEntity!=null)
+        {
         return MenuDto.builder()
                 .name(menuEntity.getName())
                 .type(menuEntity.getType())
                 .price(menuEntity.getPrice())
                 .available(menuEntity.isAvailable())
                 .build();
+    }return null;
     }
+
 }

@@ -32,6 +32,12 @@ public class OrderEntity {
 
 
 
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "menu_id", referencedColumnName = "id")
+    private MenuEntity menu;
+
+
+
 //    //menu id mapping to order table
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "menu_id", referencedColumnName = "id")
@@ -41,10 +47,6 @@ public class OrderEntity {
 
 
 
-    //old
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "menu_id", referencedColumnName = "id")
-//    List<MenuEntity> menu;
 //
 //
 

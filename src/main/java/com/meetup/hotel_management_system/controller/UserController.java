@@ -4,6 +4,7 @@ import com.meetup.hotel_management_system.constant.HmsConstants;
 import com.meetup.hotel_management_system.dto.LoginDto;
 import com.meetup.hotel_management_system.dto.LoginResponseDto;
 import com.meetup.hotel_management_system.dto.UserDto;
+import com.meetup.hotel_management_system.exception.ResourceNotFoundException;
 import com.meetup.hotel_management_system.repository.UserRepository;
 import com.meetup.hotel_management_system.service.JwtService;
 import com.meetup.hotel_management_system.service.UserService;
@@ -57,7 +58,7 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @Secured({HmsConstants.ROLE_MANAGER})
-    public String deleteUserById(@PathVariable int id) {
+    public String deleteUserById(@PathVariable int id) throws ResourceNotFoundException {
         return userService.deleteByUserId(id);
     }
 

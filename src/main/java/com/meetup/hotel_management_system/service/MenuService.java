@@ -1,6 +1,7 @@
 package com.meetup.hotel_management_system.service;
 
 import com.meetup.hotel_management_system.dto.MenuDto;
+import com.meetup.hotel_management_system.exception.ResourceNotFoundException;
 import com.meetup.hotel_management_system.repository.entity.MenuEntity;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface MenuService {
 
     List<MenuDto> searchAll(String keyword);
 
-    String deleteByMenuId(int menuId);
+    String deleteByMenuId(int menuId) throws ResourceNotFoundException;
 
     Boolean deleteByMenuName(String menuName);
 

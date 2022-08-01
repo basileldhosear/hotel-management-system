@@ -61,11 +61,12 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public String deleteByMenuId(int menuId) {
+    public String deleteByMenuId(int menuId) throws ResourceNotFoundException {
 
-        menuRepository.findById(menuId).orElseThrow(
-                () -> new ResourceNotFoundException("Menu","id",menuId));
+    var menuEntity= menuRepository.findById(menuId).orElseThrow(
+                () -> new ResourceNotFoundException(String.format("Menu not found for id %s",menuId)));
 
+        System.out.println(menuEntity);
 
        menuRepository.deleteById(menuId);
         return "Menu Deleted successfully";

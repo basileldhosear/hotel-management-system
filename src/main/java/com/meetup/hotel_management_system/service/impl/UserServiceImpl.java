@@ -70,12 +70,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getByUserName(String userName) {
+    public UserDto getByUserName(String userName) throws ResourceNotFoundException {
         var userEntityOptional = userRepository.findByUserName(userName);
 
         return userEntityOptional.map(UserHelper::mapToDto)
                 .orElseThrow(
-                        () -> new ResourceNotFoundException("username","id",1));
+                        () -> new ResourceNotFoundException(String.format("user not found %s",userName)));
 
         //old
         //.orElse(null);
@@ -86,10 +86,10 @@ public class UserServiceImpl implements UserService {
     //
 
     @Override
-    public String deleteByUserId(int userId) {
+    public String deleteByUserId(int userId) throws ResourceNotFoundException {
 
         userRepository.findById(userId).orElseThrow(
-                () -> new ResourceNotFoundException("User","id",userId));
+                () -> new ResourceNotFoundException(String.format("User not found",userId)));
 
         userRepository.deleteById(userId);
         return "User Deleted successfully";
