@@ -35,9 +35,9 @@ public class UserController {
     @Secured(HmsConstants.ROLE_MANAGER)
     public String createUser(@RequestBody UserDto userDto) {
         userService.createUser(userDto);
-        return String.format("User with username %s was created and assigned role %s",
+        return String.format("User %s created with role %s",
                 userDto.getUsername()
-                ,userDto.getRole().getName()
+                ,userDto.getRole()
             );
     }
 

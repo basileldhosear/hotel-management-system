@@ -33,7 +33,8 @@ public class OrderServiceImpl implements OrderService {
        var notAvailable= orderDto.getMenuDetails().stream()
                 .map(menuDetail -> menuRepository.findById(menuDetail.getMenuId()))
                 .map(menu -> menu.orElse(null)).filter(Objects::nonNull)
-               .anyMatch(menu->!menu.isAvailable())    ;
+               .anyMatch(menu->!menu.isAvailable())
+               ;
 
        if(notAvailable){
 

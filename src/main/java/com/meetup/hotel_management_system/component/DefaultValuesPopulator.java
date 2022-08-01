@@ -55,7 +55,9 @@ public class DefaultValuesPopulator {
         userService.createUser(new UserDto(1,"basil", "basil", RoleDto.builder()
                 .roleId(1)
                 .build()));
-
+        userService.createUser(new UserDto(2,"meril", "meril", RoleDto.builder()
+                .roleId(2)
+                .build()));
 
 
 
@@ -65,6 +67,17 @@ public class DefaultValuesPopulator {
                 .price(50)
                 .available(true)
                 .build());
+
+
+        menuService.save(MenuEntity.builder()
+                        .name("apple")
+                        .type("juice")
+                        .price(50)
+                        .available(false)
+                .build());
+
+
+
 
 
         MenuEntity menuTwo=new MenuEntity();
