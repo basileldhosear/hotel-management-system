@@ -9,22 +9,33 @@ public class OrderInfoHelper {
 
     public static OrderInfoEntity mapToEntity(OrderInfoDto orderInfoDto) {
 
-        return OrderInfoEntity.builder()
-                .id(orderInfoDto.getId())
-                .tblNo(orderInfoDto.getTblNo())
-                .customerName(orderInfoDto.getCustomerName())
-                .status(orderInfoDto.getStatus())
-                .build();
+        if (orderInfoDto != null) {
+            return OrderInfoEntity.builder()
+                    .id(orderInfoDto.getId())
+                    .tblNo(orderInfoDto.getTblNo())
+                    .customerName(orderInfoDto.getCustomerName())
+                    .status(orderInfoDto.getStatus())
+                    .staff((UserHelper.mapToEntity(orderInfoDto.getStaff())))
+
+                    .build();
+        }return null;
     }
+
+
+
+
 
     public static OrderInfoDto mapToDto(OrderInfoEntity orderInfoEntity) {
 
-        return OrderInfoDto.builder()
-                .id(orderInfoEntity.getId())
-                .tblNo(orderInfoEntity.getTblNo())
-                .customerName(orderInfoEntity.getCustomerName())
-                .status(orderInfoEntity.getStatus())
-                .build();
+        if (orderInfoEntity != null) {
+            return OrderInfoDto.builder()
+                    .id(orderInfoEntity.getId())
+                    .tblNo(orderInfoEntity.getTblNo())
+                    .customerName(orderInfoEntity.getCustomerName())
+                    .status(orderInfoEntity.getStatus())
+                    .staff(UserHelper.mapToDto(orderInfoEntity.getStaff()))
+                    .build();
+        }return null;
     }
 
 

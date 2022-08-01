@@ -25,21 +25,29 @@ public class OrderEntity {
     private String status;
 
 
-    //menu id mapping to order table
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "menu_id", referencedColumnName = "id")
-    MenuEntity menu;
+    //orderInfo into order details
+    @OneToOne
+    @JoinColumn(name = "orderInfo_id",referencedColumnName = "id")
+    private OrderInfoEntity orderInfo;
 
 
 
+//    //menu id mapping to order table
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "menu_id", referencedColumnName = "id")
+//    MenuEntity menu;
+//
+
+
+
+
+    //old
 //    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "order", referencedColumnName = "id")
+//    @JoinColumn(name = "menu_id", referencedColumnName = "id")
 //    List<MenuEntity> menu;
 //
 //
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "orderInfo_id", referencedColumnName = "id")
-//    private OrderInfoEntity orderInfo;
+
 
 
 

@@ -24,6 +24,14 @@ public class MenuServiceImpl implements MenuService {
     @Autowired
     private MenuRepository menuRepository;
 
+
+
+    @Override
+    public void save(MenuEntity menu) {
+        menuRepository.save(menu);
+    }
+
+
     @Override
     public MenuDto saveMenu(MenuDto menuDto) {
 
@@ -101,6 +109,7 @@ public class MenuServiceImpl implements MenuService {
             return new ArrayList<MenuEntity>();
         }
     }
+
 
 
 }

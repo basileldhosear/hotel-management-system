@@ -25,8 +25,8 @@ public class MenuEntity {
 
 
     //menu id mapping to order table
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "menu", fetch = FetchType.LAZY)
-    private OrderEntity order;
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "menu")
+//    private OrderEntity order;
 
 
 

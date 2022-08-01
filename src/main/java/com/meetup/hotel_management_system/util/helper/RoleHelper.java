@@ -3,6 +3,7 @@ package com.meetup.hotel_management_system.util.helper;
 
 import com.meetup.hotel_management_system.dto.RoleDto;
 import com.meetup.hotel_management_system.repository.entity.RoleEntity;
+import com.meetup.hotel_management_system.repository.entity.UserEntity;
 import lombok.experimental.UtilityClass;
 
 
@@ -10,21 +11,25 @@ import lombok.experimental.UtilityClass;
 public class RoleHelper {
 
 
+    public static RoleDto mapToDto(RoleEntity roleEntity) {
 
-    public static RoleDto mapToDto(RoleEntity roleEntity){
-
-        return RoleDto.builder()
-                .roleId(roleEntity.getId())
-                .name(roleEntity.getName())
-                .build();
+        if (roleEntity != null) {
+            return RoleDto.builder()
+                    .roleId(roleEntity.getId())
+                    .name(roleEntity.getName())
+                    .build();
+        }
+        return null;
     }
 
-    public static RoleEntity mapToEntity(RoleDto roleDto){
+    public static RoleEntity mapToEntity(RoleDto roleDto) {
 
-        return RoleEntity.builder()
-//                .role(roleDto.getRoleId())
-                .name(roleDto.getName())
-                .build();
+        if (roleDto != null) {
+            return RoleEntity.builder()
+                    .name(roleDto.getName())
+                    .build();
+        }
+        return null;
     }
 }
 

@@ -14,4 +14,6 @@ public class OrderInfoDto {
     private String customerName;
     private String status;
 
+    private UserDto staff;
+
 }

@@ -3,10 +3,13 @@ package com.meetup.hotel_management_system.component;
 import com.meetup.hotel_management_system.dto.MenuDto;
 import com.meetup.hotel_management_system.dto.RoleDto;
 import com.meetup.hotel_management_system.dto.UserDto;
+import com.meetup.hotel_management_system.repository.MenuRepository;
 import com.meetup.hotel_management_system.repository.RoleRepository;
+import com.meetup.hotel_management_system.repository.entity.MenuEntity;
 import com.meetup.hotel_management_system.repository.entity.RoleEntity;
 import com.meetup.hotel_management_system.repository.entity.RoleEnum;
 import com.meetup.hotel_management_system.service.MenuService;
+import com.meetup.hotel_management_system.service.RoleService;
 import com.meetup.hotel_management_system.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +25,13 @@ import java.util.Set;
 public class DefaultValuesPopulator {
 
     @Autowired
+    private final MenuRepository menuRepository;
+
+    @Autowired
     private final MenuService menuService;
+
+    @Autowired
+    private final RoleService roleService;
 
     @Autowired
     private final UserService userService;
@@ -41,15 +50,46 @@ public class DefaultValuesPopulator {
         RoleEntity guest =RoleEntity.builder()
                 .name(RoleEnum.GUEST.toString())
                 .build();
-        roleRepository.saveAll(List.of(manager,staff,guest));
+        roleService.saveAll(List.of(manager,staff,guest));
 
-        userService.createUser(new UserDto("basil", "basil", RoleDto.builder()
+        userService.createUser(new UserDto(1,"basil", "basil", RoleDto.builder()
                 .roleId(1)
                 .build()));
 
 
-//        menuService.saveMenu(new MenuDto("1","dosa","breakfast","50","true",
-//                MenuDto.builder().build()));
+
+
+        menuRepository.save(MenuEntity.builder()
+                .name("dosa")
+                .type("breakfast")
+                .price(50)
+                .available(true)
+                .build());
+
+
+        MenuEntity menuTwo=new MenuEntity();
+        menuTwo.setName("vada");
+        menuTwo.setType("snacks");
+        menuTwo.setPrice(20);
+        menuTwo.setAvailable(true);
+        menuService.save(menuTwo);
+
+
+
+//
+//        MenuEntity menuOne=new MenuEntity();
+//        menuOne.setName("dosa");
+//        menuOne.setType("breakfast");
+//        menuOne.setPrice(50);
+//        menuOne.setAvailable(true);
+//        menuRepository.save(menuOne);
+
+//        menuRepository.save(MenuEntity.builder()
+//                        .name("dosa")
+//                        .type("breakfast")
+//                        .price(50)
+//                        .available(true)
+//                .build());
 
 
 

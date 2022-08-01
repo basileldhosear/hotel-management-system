@@ -1,7 +1,6 @@
 package com.meetup.hotel_management_system.controller;
 
 import com.meetup.hotel_management_system.constant.HmsConstants;
-import com.meetup.hotel_management_system.dto.OrderDto;
 import com.meetup.hotel_management_system.dto.OrderInfoDto;
 import com.meetup.hotel_management_system.service.OrderInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,10 @@ public class OrderInfoController {
 
     @Secured({HmsConstants.ROLE_MANAGER, HmsConstants.ROLE_STAFF})
     @PostMapping
-    public OrderInfoDto createOrderInfo(@RequestBody OrderInfoDto orderInfoDto){
-        return orderInfoService.saveOrderInfo(orderInfoDto);
+    public String createOrderInfo(@RequestBody OrderInfoDto orderInfoDto){
+
+         orderInfoService.saveOrderInfo(orderInfoDto);
+        return String.format("order info added by staff %s" ,orderInfoDto.getStaff().getUsername()) ;
     }
 
 

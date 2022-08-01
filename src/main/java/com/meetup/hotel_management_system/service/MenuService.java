@@ -24,4 +24,6 @@ public interface MenuService {
 
     MenuEntity updateMenu(MenuEntity menuEntity);
     List<MenuEntity> getAllMenusPaging(Integer pageNo, Integer pageSize, String sortBy);
+
+    void save(MenuEntity menu);
 }

@@ -18,8 +18,8 @@ public class OrderDto {
     private String description;
     private String status;
 
-//    private OrderInfoDto infoDto;
+    private OrderInfoDto orderInfo;
 //
-    private MenuDto menu;
+//    private MenuDto menu;
 
 }
