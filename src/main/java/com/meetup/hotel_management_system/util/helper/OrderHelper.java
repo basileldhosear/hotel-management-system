@@ -57,7 +57,8 @@ public class OrderHelper {
 //    }return null;
 //    }
 
-    public OrderEntity mapToOrderEntityFromMenuDetails(MenuDetailsDto menuDetailsDto, OrderInfoEntity orderInfoEntity,String orderDetailStatus){
+    public OrderEntity mapToOrderEntityFromMenuDetails(MenuDetailsDto menuDetailsDto
+            , OrderInfoEntity orderInfoEntity,String orderDetailStatus){
 
         if(menuDetailsDto!=null){
 

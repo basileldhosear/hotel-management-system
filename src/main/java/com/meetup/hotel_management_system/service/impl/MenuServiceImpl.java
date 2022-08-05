@@ -1,6 +1,7 @@
 package com.meetup.hotel_management_system.service.impl;
 
 import com.meetup.hotel_management_system.dto.MenuDto;
+import com.meetup.hotel_management_system.exception.BusinessException;
 import com.meetup.hotel_management_system.exception.ResourceNotFoundException;
 import com.meetup.hotel_management_system.repository.MenuRepository;
 import com.meetup.hotel_management_system.repository.entity.MenuEntity;
