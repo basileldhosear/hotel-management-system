@@ -32,8 +32,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean createUser(UserDto userDto) {
 
-        RoleEntity roleEntity=roleRepository.findById(userDto.getRole().getRoleId()).get();
-
+        RoleEntity roleEntity = roleRepository.findById(userDto.getRole().getRoleId()).get();
         UserEntity userEntity = UserHelper.mapToEntity(userDto);
         userEntity.setPasswd(passwordEncoder.encode(userEntity.getPasswd()));
         userEntity.setRole(roleEntity);
@@ -74,7 +73,7 @@ public class UserServiceImpl implements UserService {
 
         return userEntityOptional.map(UserHelper::mapToDto)
                 .orElseThrow(
-                        () -> new ResourceNotFoundException(String.format("user not found %s",userName)));
+                        () -> new ResourceNotFoundException(String.format("user not found %s", userName)));
 
         //old
         //.orElse(null);
@@ -88,14 +87,12 @@ public class UserServiceImpl implements UserService {
     public String deleteByUserId(int userId) throws ResourceNotFoundException {
 
         userRepository.findById(userId).orElseThrow(
-                () -> new ResourceNotFoundException(String.format("User not found",userId)));
+                () -> new ResourceNotFoundException(String.format("User not found", userId)));
 
         userRepository.deleteById(userId);
         return "User Deleted successfully";
 
     }
-
-
 
 
 }

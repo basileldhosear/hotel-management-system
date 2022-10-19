@@ -72,3 +72,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 //        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 //    }
 }
+
+
+//    @ExceptionHandler(ServiceUnavailableException.class)
+//    protected ResponseEntity<Object> handleServiceUnavailable(ServiceUnavailableException ex) {
+//        List<String> errors = new ArrayList<String>();
+//        ExceptionResponse exceptionResponse = new ExceptionResponse(HttpStatus.SERVICE_UNAVAILABLE, HttpStatus.SERVICE_UNAVAILABLE.value(), ex.getMessage(), errors);
+//        return new ResponseEntity<>(exceptionResponse,HttpStatus.SERVICE_UNAVAILABLE);
+//    }
+
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<Object> exception(Exception exception) {
+//        System.out.println(exception);
+//        return new ResponseEntity<>("Error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
